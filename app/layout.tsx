@@ -26,16 +26,24 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://amirfaisalkarimullah.my.id"),
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/afk-logo.png",
+    shortcut: "/afk-logo.png",
+    apple: "/afk-logo.png",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+ }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="id" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/afk-logo.png" />
+        <link rel="shortcut icon" href="/afk-logo.png" />
+        <link rel="apple-touch-icon" href="/afk-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
