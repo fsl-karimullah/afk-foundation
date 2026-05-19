@@ -7,7 +7,7 @@ const footerLinks = [
   { label: "PulseAI", href: "https://pulseai.biz.id" },
   { label: "Ajukan Stimulus", href: "#apply" },
   { label: "Tentang Founder", href: "#founder" },
-  { label: "Hubungi Kami", href: "mailto:hello@amirfaisalkarimullah.my.id" },
+  { label: "Hubungi Kami", href: "https://wa.me/6287826563459" },
 ];
 
 export default function Footer() {

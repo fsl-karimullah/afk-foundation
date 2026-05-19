@@ -3,7 +3,6 @@
 import {
   Building2,
   Code2,
-  Link2,
   Quote,
   ChevronRight,
 } from "lucide-react";
@@ -31,6 +30,23 @@ const credentials = [
     desc: "Mengembangkan berbagai layanan digital secara mandiri di luar jam kerja utama BUMN, yang menjadi salah satu sumber pendanaan inisiatif sosial ini.",
   },
 ];
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 export default function FounderSection() {
   return (
@@ -181,13 +197,13 @@ export default function FounderSection() {
 
             {/* Social proof */}
             <a
-              href="https://linkedin.com"
+              href="https://www.instagram.com/amirfaisaal/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-slate-600 hover:text-[var(--emerald)] transition-colors group mt-6"
             >
-              <Link2 className="w-5 h-5 text-[#0077b5] group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium">Verifikasi profil di LinkedIn</span>
+              <InstagramIcon className="w-5 h-5 text-[#e1306c] group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium">Ikuti di Instagram</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

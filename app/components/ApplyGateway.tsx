@@ -129,13 +129,13 @@ export default function ApplyGateway() {
                 Mulai Pengajuan
               </h3>
               <p className="text-slate-600 text-sm mb-8 leading-relaxed">
-                Tuliskan profil lengkap, kendala, rencana penggunaan dana, atau bantuan spesifik yang Anda butuhkan di formulir Google Form di bawah ini.
+                Tuliskan profil lengkap, kendala, rencana penggunaan dana, atau bantuan spesifik yang Anda butuhkan di formulir pengajuan di bawah ini.
               </p>
 
               {/* Primary CTA */}
               <a
                 id="apply-form-btn"
-                href="https://forms.gle/YourGoogleFormLink"
+                href="https://form.typeform.com/to/yy4qYAxc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary flex items-center justify-center gap-3 w-full px-8 py-5 rounded-2xl bg-[var(--emerald)] text-white font-black text-lg mb-4 hover:bg-[var(--emerald-light)] transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 shadow-xl shadow-[rgba(13,148,136,0.2)]"
@@ -155,10 +155,12 @@ export default function ApplyGateway() {
                 </p>
                 <a
                   id="support-btn"
-                  href="mailto:hello@amirfaisalkarimullah.my.id"
+                  href="https://wa.me/6287826563459"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-bold text-sm text-[var(--emerald)] border border-[rgba(13,148,136,0.25)] hover:border-[var(--emerald)] hover:bg-[rgba(13,148,136,0.05)] transition-all duration-300"
                 >
-                  Hubungi Founder /AFK Team
+                  Hubungi Founder / AFK Team
                   <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
