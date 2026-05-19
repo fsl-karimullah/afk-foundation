@@ -69,7 +69,7 @@ const stats = [
     prefix: "",
     suffix: " Penerima",
     label: "Penerima Bantuan Aktif",
-    sub: "Siswa, UMKM, & individu terbentur krisis",
+    sub: "Siswa, usaha mikro, & individu terbentur krisis",
     color: "#6ee7b7",
   },
   {
@@ -77,9 +77,9 @@ const stats = [
     icon: Cpu,
     value: 31,
     prefix: "",
-    suffix: " Landing Page",
-    label: "Situs & Infrastruktur Gratis",
-    sub: "Untuk inisiatif sosial & usaha mandiri",
+    suffix: " Halaman",
+    label: "Fasilitas Landing Page Gratis",
+    sub: "Untuk portofolio & inisiatif non-komersial",
     color: "#a7f3d0",
   },
   {
@@ -89,7 +89,7 @@ const stats = [
     prefix: "",
     suffix: "% Admin Fee",
     label: "Transparansi Total",
-    sub: "Pendanaan personal founder",
+    sub: "Gaji BUMN & hasil usaha personal",
     color: "#10b981",
   },
 ];

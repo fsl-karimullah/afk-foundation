@@ -26,9 +26,9 @@ const credentials = [
   },
   {
     icon: Code2,
-    title: "Akademi UMKM & PulseAI",
-    role: "Founder & Builder",
-    desc: "Membangun dua platform digital dari nol untuk ekosistem UMKM — di luar jam kerja, murni dari passion dan misi sosial.",
+    title: "Usaha Mandiri & Digital Ventures",
+    role: "Independent Builder",
+    desc: "Mengembangkan berbagai layanan digital secara mandiri di luar jam kerja utama BUMN, yang menjadi salah satu sumber pendanaan inisiatif sosial ini.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function FounderSection() {
                   className="w-8 h-8 text-[var(--emerald)] mb-3 opacity-60"
                 />
                 <p className="text-[var(--slate-200)] text-base leading-relaxed italic font-medium">
-                  "Saya percaya bahwa kebaikan harus berputar secara mandiri. Inilah mengapa setiap profit dari inisiatif digital ini didedikasikan untuk membuka akses pendidikan, pemberdayaan, dan bantuan darurat bagi yang membutuhkan."
+                  "Saya percaya bahwa kebaikan harus berputar secara mandiri. Inilah mengapa sebagian penghasilan dari gaji bulanan dan hasil usaha digital saya dedikasikan secara konsisten untuk menyokong pendidikan, pemberdayaan, dan bantuan darurat bagi yang membutuhkan."
                 </p>
                 <p className="text-[var(--emerald)] text-sm font-bold mt-4">
                   — Amir Faisal Karimullah

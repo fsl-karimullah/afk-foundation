@@ -52,7 +52,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-semibold text-[var(--emerald)] uppercase tracking-widest mb-8 border border-[rgba(16,185,129,0.2)]">
           <Sparkles className="w-3.5 h-3.5" />
-          Circular Philanthropy Initiative
+          Personal Philanthropy Initiative
         </div>
 
         {/* Headline */}
@@ -75,8 +75,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p className="text-lg md:text-xl text-[var(--slate-400)] max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
-          Gerakan filantropi personal yang didanai penuh oleh profit inovasi
-          digital. Menyebarkan kebaikan untuk pendidikan, pemberdayaan usaha, dan{" "}
+          Gerakan filantropi personal yang didanai secara mandiri dari sebagian gaji BUMN dan penghasilan usaha Amir Faisal. Menyebarkan kebaikan untuk pendidikan, pemberdayaan usaha, dan{" "}
           <span className="text-[var(--slate-200)]">
             kebutuhan mendesak setiap bulan.
           </span>
@@ -103,7 +102,7 @@ export default function Hero() {
         <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-[var(--slate-400)] text-sm font-medium">
           {[
             "Admin Fee: 0%",
-            "Didanai Profit Digital",
+            "Didanai Gaji & Usaha Mandiri",
             "Transparan & Terukur",
           ].map((t) => (
             <div key={t} className="flex items-center gap-2">

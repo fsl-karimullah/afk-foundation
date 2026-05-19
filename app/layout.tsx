@@ -4,18 +4,16 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Amir Faisal Karimullah Foundation | Filantropi Berbasis Inovasi Digital",
   description:
-    "Gerakan filantropi personal yang didanai penuh oleh profit inovasi digital. Membagikan stimulus Rp200rb/bulan untuk pendidikan, modal usaha, dan kebutuhan mendesak. Powered by Akademi UMKM & PulseAI.",
+    "Gerakan filantropi personal dari sebagian gaji dan penghasilan usaha Amir Faisal Karimullah. Membagikan stimulus Rp200rb/bulan untuk pendidikan, modal usaha mandiri, dan kebutuhan mendesak.",
   keywords: [
     "filantropi",
     "pendidikan",
     "bantuan sosial",
-    "Akademi UMKM",
-    "PulseAI",
     "Amir Faisal Karimullah",
     "stimulus modal",
     "kebutuhan mendesak",
     "teknologi kemanusiaan",
-    "circular philanthropy",
+    "filantropi mandiri",
   ],
   authors: [{ name: "Amir Faisal Karimullah", url: "https://amirfaisalkarimullah.my.id" }],
   openGraph: {

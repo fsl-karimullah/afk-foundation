@@ -3,10 +3,9 @@
 import { Heart, ExternalLink } from "lucide-react";
 
 const footerLinks = [
-  { label: "Akademi UMKM", href: "https://akademiumkm.id" },
-  { label: "PulseAI", href: "https://pulseai.biz.id" },
   { label: "Ajukan Stimulus", href: "#apply" },
   { label: "Tentang Founder", href: "#founder" },
+  { label: "Hubungi Kami", href: "mailto:hello@amirfaisalkarimullah.my.id" },
 ];
 
 export default function Footer() {
@@ -36,7 +35,7 @@ export default function Footer() {
               <a
                 key={l.label}
                 href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
+                target={l.href.startsWith("http") || l.href.startsWith("mailto") ? "_blank" : undefined}
                 rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="text-[var(--slate-400)] hover:text-white text-sm transition-colors font-medium"
               >
@@ -56,9 +55,7 @@ export default function Footer() {
         {/* Bottom note */}
         <div className="mt-10 pt-8 border-t border-[var(--glass-border)] text-center">
           <p className="text-[var(--slate-400)] text-xs max-w-2xl mx-auto leading-relaxed">
-            AFK Foundation adalah inisiatif filantropi personal yang didanai sepenuhnya
-            dari profit bisnis digital. Tidak ada dana publik yang digunakan. Seluruh
-            penyaluran bersifat transparan dan dapat diaudit. Admin Fee: 0%.
+            AFK Foundation adalah inisiatif filantropi personal yang didanai secara mandiri dari sebagian gaji BUMN dan penghasilan usaha Amir Faisal. Tidak ada dana publik yang digunakan. Seluruh penyaluran bersifat transparan dan dapat diaudit. Admin Fee: 0%.
           </p>
         </div>
       </div>
