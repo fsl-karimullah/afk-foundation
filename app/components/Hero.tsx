@@ -67,16 +67,16 @@ export default function Hero() {
             <span className="gradient-text">{words[wordIdx]}</span>
           </span>
           <br />
-          <span className="text-white">untuk Kemanusiaan,</span>
+          <span className="text-slate-900">untuk Kemanusiaan,</span>
           <br />
-          <span className="text-white">Modal untuk </span>
+          <span className="text-slate-900">Modal untuk </span>
           <span className="gradient-text">Kemandirian.</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-[var(--slate-400)] max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
+        <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
           Gerakan filantropi personal yang didanai secara mandiri dari sebagian gaji BUMN dan penghasilan usaha Amir Faisal. Menyebarkan kebaikan untuk pendidikan, pemberdayaan usaha, dan{" "}
-          <span className="text-[var(--slate-200)]">
+          <span className="text-slate-900">
             kebutuhan mendesak setiap bulan.
           </span>
         </p>
@@ -86,13 +86,13 @@ export default function Hero() {
           <a
             id="hero-cta-primary"
             href="#apply"
-            className="btn-primary px-8 py-4 rounded-2xl bg-[var(--emerald)] text-[var(--bg-primary)] font-bold text-base hover:bg-[var(--emerald-light)] transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 w-full sm:w-auto text-center shadow-lg shadow-[rgba(16,185,129,0.3)]"
+            className="btn-primary px-8 py-4 rounded-2xl bg-[var(--emerald)] text-white font-bold text-base hover:bg-[var(--emerald-light)] transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 w-full sm:w-auto text-center shadow-lg shadow-[rgba(13,148,136,0.2)]"
           >
             Ajukan Stimulus Sekarang →
           </a>
           <a
             href="#impact"
-            className="px-8 py-4 rounded-2xl glass font-bold text-base text-white hover:border-[var(--emerald)] transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center border border-[var(--glass-border)]"
+            className="px-8 py-4 rounded-2xl glass font-bold text-base text-slate-800 hover:border-[var(--emerald)] transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center border border-[var(--glass-border)]"
           >
             Lihat Dampak Nyata
           </a>

@@ -30,7 +30,7 @@ export default function StimulusProgram() {
       className="py-32 relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(180deg, var(--bg-primary) 0%, rgba(10,22,40,0.8) 50%, var(--bg-primary) 100%)",
+          "linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%)",
       }}
     >
       {/* Grid pattern overlay */}
@@ -42,10 +42,10 @@ export default function StimulusProgram() {
           <p className="text-[var(--emerald)] font-semibold uppercase tracking-widest text-sm mb-4">
             Program Bantuan
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-5">
             Dampak Nyata yang Diberikan
           </h2>
-          <p className="text-[var(--slate-400)] text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Program bantuan nyata terarah yang dirancang untuk mendukung pembelajaran, kemandirian finansial, dan penyelesaian masalah mendesak di tahap awal gerakan ini.
           </p>
           <hr className="hr-gradient mt-10 max-w-xs mx-auto" />
@@ -61,7 +61,7 @@ export default function StimulusProgram() {
                 id={prog.id}
                 className="relative glass overflow-hidden p-8 md:p-10 group hover:scale-[1.01] transition-all duration-400"
                 style={{
-                  boxShadow: `0 0 0 1px ${prog.accentColor}20, 0 20px 40px rgba(0,0,0,0.2)`,
+                  boxShadow: `0 0 0 1px ${prog.accentColor}18, 0 20px 40px rgba(13,148,136,0.03)`,
                   animationDelay: `${index * 150}ms`,
                 }}
               >
@@ -76,8 +76,8 @@ export default function StimulusProgram() {
                     <div
                       className="w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                       style={{
-                        background: `${prog.accentColor}18`,
-                        border: `1px solid ${prog.accentColor}33`,
+                        background: `${prog.accentColor}12`,
+                        border: `1px solid ${prog.accentColor}25`,
                       }}
                     >
                       <Icon
@@ -96,7 +96,7 @@ export default function StimulusProgram() {
                     {prog.subtitle}
                   </span>
 
-                  <h3 className="text-2xl font-black text-white mt-1 mb-2">
+                  <h3 className="text-2xl font-black text-slate-900 mt-1 mb-2">
                     {prog.title}
                   </h3>
 
@@ -104,15 +104,15 @@ export default function StimulusProgram() {
                   <div
                     className="inline-block px-3 py-1.5 rounded-lg text-sm font-bold mb-4"
                     style={{
-                      background: `${prog.accentColor}18`,
+                      background: `${prog.accentColor}12`,
                       color: prog.accentColor,
-                      border: `1px solid ${prog.accentColor}30`,
+                      border: `1px solid ${prog.accentColor}25`,
                     }}
                   >
                     {prog.amount}
                   </div>
 
-                  <p className="text-[var(--slate-400)] text-sm md:text-base leading-relaxed mb-6">
+                  <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-6">
                     {prog.description}
                   </p>
 
@@ -121,7 +121,7 @@ export default function StimulusProgram() {
                     {prog.features.map((f) => (
                       <li
                         key={f}
-                        className="flex items-start gap-2.5 text-sm text-[var(--slate-300)]"
+                        className="flex items-start gap-2.5 text-sm text-slate-700"
                       >
                         <CheckCircle
                           className="w-4 h-4 mt-0.5 flex-shrink-0"
@@ -147,12 +147,12 @@ export default function StimulusProgram() {
 
         {/* CTA bridge */}
         <div className="mt-16 text-center">
-          <p className="text-[var(--slate-400)] text-base mb-6">
+          <p className="text-slate-600 text-base mb-6">
             Siap mengajukan bantuan atau ingin merekomendasikan penerima?
           </p>
           <a
             href="#apply"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[var(--emerald)] text-[var(--bg-primary)] font-bold text-base hover:bg-[var(--emerald-light)] transition-all duration-300 hover:scale-105 shadow-lg shadow-[rgba(16,185,129,0.3)]"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[var(--emerald)] text-white font-bold text-base hover:bg-[var(--emerald-light)] transition-all duration-300 hover:scale-105 shadow-lg shadow-[rgba(13,148,136,0.2)]"
           >
             Ajukan Stimulus Sekarang →
           </a>

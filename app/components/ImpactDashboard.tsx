@@ -112,10 +112,10 @@ export default function ImpactDashboard() {
           <p className="text-[var(--emerald)] font-semibold uppercase tracking-widest text-sm mb-4">
             Impact Dashboard
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-5">
             Angka yang Bicara
           </h2>
-          <p className="text-[var(--slate-400)] text-lg max-w-xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-xl mx-auto">
             Dampak nyata yang terukur, diperbarui setiap bulan.
           </p>
           <hr className="hr-gradient mt-10 max-w-xs mx-auto" />
@@ -151,15 +151,15 @@ export default function ImpactDashboard() {
                     duration={1800}
                   />
                 </div>
-                <p className="text-white font-bold text-base mb-1">{stat.label}</p>
-                <p className="text-[var(--slate-400)] text-xs font-medium">{stat.sub}</p>
+                <p className="text-slate-800 font-bold text-base mb-1">{stat.label}</p>
+                <p className="text-slate-600 text-xs font-medium">{stat.sub}</p>
               </div>
             );
           })}
         </div>
 
         {/* Disclaimer */}
-        <p className="text-center text-[var(--slate-400)] text-xs mt-8 opacity-60">
+        <p className="text-center text-slate-500 text-xs mt-8 opacity-60">
           * Data bersifat simulasi indikatif. Laporan resmi dirilis setiap kuartal.
         </p>
       </div>

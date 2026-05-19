@@ -7,7 +7,7 @@ const engines = [
     id: "akademi-umkm",
     icon: GraduationCap,
     badge: "Usaha Mandiri / Edukasi",
-    badgeColor: "#10b981",
+    badgeColor: "#0d9488",
     name: "Akademi UMKM",
     tagline: "Pusat edukasi bisnis untuk scale-up usaha mikro.",
     description:
@@ -17,9 +17,9 @@ const engines = [
     ctaLabel: "akademiumkm.id",
     impact:
       "Sebagian penghasilan bersih dan gaji Amir Faisal dari hasil operasional platform ini didedikasikan secara personal untuk mendanai AFK Foundation.",
-    accentColor: "#10b981",
-    gradient: "from-[rgba(16,185,129,0.12)] to-transparent",
-    borderGlow: "rgba(16,185,129,0.2)",
+    accentColor: "#0d9488",
+    gradient: "from-[rgba(13,148,136,0.08)] to-transparent",
+    borderGlow: "rgba(13,148,136,0.12)",
     stats: [
       { value: "500+", label: "Peserta Aktif" },
       { value: "20+", label: "Modul Kelas" },
@@ -30,7 +30,7 @@ const engines = [
     id: "pulse-ai",
     icon: BrainCircuit,
     badge: "Usaha Mandiri / SaaS",
-    badgeColor: "#818cf8",
+    badgeColor: "#6366f1",
     name: "PulseAI",
     tagline: "SaaS Automasi Bisnis berbasis AI untuk efisiensi bisnis rintisan.",
     description:
@@ -40,9 +40,9 @@ const engines = [
     ctaLabel: "pulseai.biz.id",
     impact:
       "Sebagian penghasilan personal Amir Faisal dari layanan digital ini disalurkan secara langsung untuk mendukung alokasi stimulus sosial.",
-    accentColor: "#818cf8",
-    gradient: "from-[rgba(129,140,248,0.12)] to-transparent",
-    borderGlow: "rgba(129,140,248,0.2)",
+    accentColor: "#6366f1",
+    gradient: "from-[rgba(99,102,241,0.08)] to-transparent",
+    borderGlow: "rgba(99,102,241,0.12)",
     stats: [
       { value: "AI-Powered", label: "Automasi Penuh" },
       { value: "24/7", label: "Support Aktif" },
@@ -53,13 +53,13 @@ const engines = [
 
 export default function EngineOfImpact() {
   return (
-    <section id="engine" className="py-32 relative overflow-hidden">
+    <section id="engine" className="py-32 relative overflow-hidden bg-white">
       {/* Subtle bg */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 60% at 80% 50%, rgba(129,140,248,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 60% at 80% 50%, rgba(99,102,241,0.02) 0%, transparent 70%)",
         }}
       />
 
@@ -69,10 +69,10 @@ export default function EngineOfImpact() {
           <p className="text-[var(--emerald)] font-semibold uppercase tracking-widest text-sm mb-4">
             Sumber Pendanaan
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-5">
             Pilar Usaha & Kemandirian
           </h2>
-          <p className="text-[var(--slate-400)] text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Dua usaha digital mandiri yang dirintis oleh Amir Faisal. Gaji dan penghasilan personal yang ia peroleh dari sini disisihkan secara sadar untuk mendanai gerakan sosial.
           </p>
           <hr className="hr-gradient mt-10 max-w-xs mx-auto" />
@@ -88,7 +88,7 @@ export default function EngineOfImpact() {
                 id={eng.id}
                 className="relative glass overflow-hidden p-8 md:p-10 group hover:scale-[1.01] transition-all duration-500"
                 style={{
-                  boxShadow: `0 0 0 1px ${eng.borderGlow}, 0 20px 60px rgba(0,0,0,0.3)`,
+                  boxShadow: `0 0 0 1px ${eng.borderGlow}, 0 20px 40px rgba(13,148,136,0.03)`,
                 }}
               >
                 {/* Gradient overlay */}
@@ -102,8 +102,8 @@ export default function EngineOfImpact() {
                     className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
                     style={{
                       color: eng.accentColor,
-                      background: `${eng.accentColor}18`,
-                      border: `1px solid ${eng.accentColor}30`,
+                      background: `${eng.accentColor}12`,
+                      border: `1px solid ${eng.accentColor}25`,
                     }}
                   >
                     {eng.badge}
@@ -114,8 +114,8 @@ export default function EngineOfImpact() {
                     <div
                       className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
                       style={{
-                        background: `linear-gradient(135deg, ${eng.accentColor}22, ${eng.accentColor}08)`,
-                        border: `1px solid ${eng.accentColor}33`,
+                        background: `linear-gradient(135deg, ${eng.accentColor}18, ${eng.accentColor}05)`,
+                        border: `1px solid ${eng.accentColor}25`,
                       }}
                     >
                       <Icon
@@ -124,17 +124,17 @@ export default function EngineOfImpact() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-black text-white mb-1">
+                      <h3 className="text-2xl font-black text-slate-900 mb-1">
                         {eng.name}
                       </h3>
-                      <p className="text-[var(--slate-400)] text-sm font-medium leading-snug">
+                      <p className="text-slate-600 text-sm font-medium leading-snug">
                         {eng.tagline}
                       </p>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-[var(--slate-300)] text-sm leading-relaxed mb-8">
+                  <p className="text-slate-700 text-sm leading-relaxed mb-8">
                     {eng.description}
                   </p>
 
@@ -145,8 +145,8 @@ export default function EngineOfImpact() {
                         key={s.label}
                         className="text-center py-3 rounded-xl"
                         style={{
-                          background: `${eng.accentColor}0d`,
-                          border: `1px solid ${eng.accentColor}20`,
+                          background: `${eng.accentColor}0a`,
+                          border: `1px solid ${eng.accentColor}15`,
                         }}
                       >
                         <p
@@ -155,16 +155,16 @@ export default function EngineOfImpact() {
                         >
                           {s.value}
                         </p>
-                        <p className="text-[var(--slate-400)] text-xs">{s.label}</p>
+                        <p className="text-slate-500 text-xs">{s.label}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* Impact note */}
                   <div
-                    className="p-4 rounded-xl mb-8 text-sm text-[var(--slate-300)] leading-relaxed"
+                    className="p-4 rounded-xl mb-8 text-sm text-slate-700 leading-relaxed"
                     style={{
-                      background: `${eng.accentColor}0d`,
+                      background: `${eng.accentColor}0a`,
                       borderLeft: `3px solid ${eng.accentColor}`,
                     }}
                   >
@@ -180,14 +180,14 @@ export default function EngineOfImpact() {
                     className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 group/btn"
                     style={{
                       background: `linear-gradient(135deg, ${eng.accentColor}, ${eng.accentColor}cc)`,
-                      color: eng.accentColor === "#10b981" ? "#020617" : "#ffffff",
-                      boxShadow: `0 8px 24px ${eng.accentColor}30`,
+                      color: "#ffffff",
+                      boxShadow: `0 8px 24px ${eng.accentColor}25`,
                     }}
                   >
                     {eng.cta}
                     <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                   </a>
-                  <p className="text-[var(--slate-400)] text-xs mt-3 ml-1">
+                  <p className="text-slate-500 text-xs mt-3 ml-1">
                     → {eng.ctaLabel}
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export default function EngineOfImpact() {
 
         {/* Flow diagram */}
         <div className="mt-16 glass p-8 rounded-2xl text-center">
-          <p className="text-[var(--slate-400)] text-sm mb-6 uppercase tracking-widest font-semibold">
+          <p className="text-slate-600 text-sm mb-6 uppercase tracking-widest font-semibold">
             Alur Pendanaan Mandiri
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
@@ -221,11 +221,11 @@ export default function EngineOfImpact() {
                   key={item.label}
                   className="text-center px-4 py-3 rounded-xl"
                   style={{
-                    background: "rgba(16,185,129,0.08)",
-                    border: "1px solid rgba(16,185,129,0.15)",
+                    background: "rgba(13,148,136,0.05)",
+                    border: "1px solid rgba(13,148,136,0.1)",
                   }}
                 >
-                  <p className="text-white font-bold text-sm">{item.label}</p>
+                  <p className="text-slate-900 font-bold text-sm">{item.label}</p>
                   <p className="text-[var(--emerald)] text-xs font-medium">{item.sub}</p>
                 </div>
               )
