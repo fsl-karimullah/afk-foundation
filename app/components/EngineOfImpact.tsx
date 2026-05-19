@@ -6,47 +6,47 @@ const engines = [
   {
     id: "akademi-umkm",
     icon: GraduationCap,
-    badge: "Education Platform",
+    badge: "Usaha Mandiri / Edukasi",
     badgeColor: "#10b981",
     name: "Akademi UMKM",
-    tagline: "Pusat edukasi bisnis untuk scale-up usaha tanpa burnout.",
+    tagline: "Pusat edukasi bisnis untuk scale-up usaha mikro.",
     description:
-      "Platform edukasi bisnis yang dirancang khusus untuk pemilik usaha Indonesia. Dari strategi digital, keuangan, hingga branding — semua dalam satu ekosistem terstruktur.",
+      "Platform edukasi bisnis rintisan mandiri yang dirancang khusus untuk pemilik usaha Indonesia guna naik kelas melalui digitalisasi.",
     cta: "Lihat Kelas",
     ctaUrl: "https://akademiumkm.id",
     ctaLabel: "akademiumkm.id",
     impact:
-      "10% dari setiap pendaftaran kelas langsung disalurkan ke program beasiswa pendidikan dan stimulus modal.",
+      "Sebagian penghasilan bersih dan gaji Amir Faisal dari hasil operasional platform ini didedikasikan secara personal untuk mendanai AFK Foundation.",
     accentColor: "#10b981",
     gradient: "from-[rgba(16,185,129,0.12)] to-transparent",
     borderGlow: "rgba(16,185,129,0.2)",
     stats: [
       { value: "500+", label: "Peserta Aktif" },
       { value: "20+", label: "Modul Kelas" },
-      { value: "10%", label: "→ Stimulus" },
+      { value: "Mandiri", label: "Usaha Founder" },
     ],
   },
   {
     id: "pulse-ai",
     icon: BrainCircuit,
-    badge: "AI SaaS Platform",
+    badge: "Usaha Mandiri / SaaS",
     badgeColor: "#818cf8",
     name: "PulseAI",
-    tagline: "SaaS Automasi Bisnis berbasis AI untuk efisiensi maksimal.",
+    tagline: "SaaS Automasi Bisnis berbasis AI untuk efisiensi bisnis rintisan.",
     description:
-      "Platform AI yang mengotomasi operasional bisnis dan administrasi — dari customer service, laporan keuangan, hingga kampanye marketing — dalam satu dashboard cerdas.",
+      "Platform AI yang mengotomasi operasional bisnis dan administrasi, membantu efisiensi bisnis mandiri dalam satu dashboard cerdas.",
     cta: "Coba PulseAI",
     ctaUrl: "https://pulseai.biz.id",
     ctaLabel: "pulseai.biz.id",
     impact:
-      "Setiap langganan aktif mendanai biaya pendidikan anak sekolah dan infrastruktur digital inisiatif sosial.",
+      "Sebagian penghasilan personal Amir Faisal dari layanan digital ini disalurkan secara langsung untuk mendukung alokasi stimulus sosial.",
     accentColor: "#818cf8",
     gradient: "from-[rgba(129,140,248,0.12)] to-transparent",
     borderGlow: "rgba(129,140,248,0.2)",
     stats: [
       { value: "AI-Powered", label: "Automasi Penuh" },
       { value: "24/7", label: "Support Aktif" },
-      { value: "∞", label: "→ Kebaikan" },
+      { value: "Mandiri", label: "Usaha Founder" },
     ],
   },
 ];
@@ -67,15 +67,13 @@ export default function EngineOfImpact() {
         {/* Header */}
         <div className="text-center mb-20">
           <p className="text-[var(--emerald)] font-semibold uppercase tracking-widest text-sm mb-4">
-            Circular Philanthropy Engine
+            Sumber Pendanaan
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            The Engine of Impact
+            Pilar Usaha & Kemandirian
           </h2>
           <p className="text-[var(--slate-400)] text-lg max-w-2xl mx-auto">
-            Dua bisnis digital yang menjadi{" "}
-            <span className="text-white font-semibold">bahan bakar filantropi</span> —
-            profit yang dihasilkan kembali kepada masyarakat.
+            Dua usaha digital mandiri yang dirintis oleh Amir Faisal. Gaji dan penghasilan personal yang ia peroleh dari sini disisihkan secara sadar untuk mendanai gerakan sosial.
           </p>
           <hr className="hr-gradient mt-10 max-w-xs mx-auto" />
         </div>
@@ -201,17 +199,17 @@ export default function EngineOfImpact() {
         {/* Flow diagram */}
         <div className="mt-16 glass p-8 rounded-2xl text-center">
           <p className="text-[var(--slate-400)] text-sm mb-6 uppercase tracking-widest font-semibold">
-            Alur Circular Philanthropy
+            Alur Pendanaan Mandiri
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
             {[
-              { label: "Akademi UMKM & PulseAI", sub: "Profit Engine" },
+              { label: "Gaji BUMN & Usaha Digital", sub: "Sumber Pendapatan" },
               null,
-              { label: "Profit Bersih", sub: "Revenue Share" },
+              { label: "Gaji & Hasil Bersih", sub: "Penghasilan Personal" },
               null,
-              { label: "AFK Foundation", sub: "Dana Stimulus" },
+              { label: "AFK Foundation", sub: "Alokasi Stimulus" },
               null,
-              { label: "Penerima Manfaat", sub: "Sosial, Pendidikan & Usaha" },
+              { label: "Penerima Manfaat", sub: "Pendidikan & Kebutuhan Darurat" },
             ].map((item, i) =>
               item === null ? (
                 <ArrowRight

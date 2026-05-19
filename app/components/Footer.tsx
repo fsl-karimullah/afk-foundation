@@ -3,6 +3,8 @@
 import { Heart, ExternalLink } from "lucide-react";
 
 const footerLinks = [
+  { label: "Akademi UMKM", href: "https://akademiumkm.id" },
+  { label: "PulseAI", href: "https://pulseai.biz.id" },
   { label: "Ajukan Stimulus", href: "#apply" },
   { label: "Tentang Founder", href: "#founder" },
   { label: "Hubungi Kami", href: "mailto:hello@amirfaisalkarimullah.my.id" },

@@ -8,54 +8,18 @@ const programs = [
     icon: Banknote,
     emoji: "💸",
     title: "Stimulus Kebaikan",
-    subtitle: "Dukungan Dana Langsung",
-    amount: "Rp 200.000/bulan",
+    subtitle: "Alokasi Dana Personal",
+    amount: "Rp 200.000/bulan (Total Anggaran)",
     description:
-      "Penyaluran dana tunai personal untuk membantu biaya pendidikan, tambahan modal usaha mikro, atau bantuan darurat kebutuhan mendesak lainnya.",
+      "Penyaluran stimulus dana tunai personal dengan total alokasi Rp 200.000 per bulan. Ditujukan untuk membantu skala kecil terlebih dahulu guna meringankan biaya pendidikan, tambahan modal usaha mikro, atau bantuan darurat mendesak lainnya.",
     features: [
-      "Transfer langsung ke rekening penerima",
-      "Tanpa bunga, cicilan, atau agunan",
-      "Prioritas bagi yang benar-benar membutuhkan",
-      "Proses seleksi transparan & berkala",
+      "Total alokasi Rp 200.000 per bulan (tahap awal)",
+      "Transfer langsung ke rekening penerima terpilih",
+      "Murni bantuan/hibah personal (tanpa cicilan/bunga)",
+      "Prioritas bagi kondisi mendesak atau inisiatif mandiri",
     ],
     accentColor: "#10b981",
     gradient: "from-[rgba(16,185,129,0.1)] to-transparent",
-  },
-  {
-    id: "situs-umkm-gratis",
-    icon: Globe,
-    emoji: "🌐",
-    title: "Situs & Branding Gratis",
-    subtitle: "Infrastruktur Digital",
-    amount: "Landing Page + Domain Gratis",
-    description:
-      "Pembuatan landing page statis cepat & domain (.my.id) untuk inisiatif sosial, organisasi nirlaba, portofolio pendidikan, atau bisnis rintisan binaan.",
-    features: [
-      "Landing page modern berbasis Next.js",
-      "Domain dan hosting gratis 1 tahun",
-      "Optimasi SEO & performa tinggi",
-      "Bantuan setup administrasi dasar",
-    ],
-    accentColor: "#38bdf8",
-    gradient: "from-[rgba(56,189,248,0.1)] to-transparent",
-  },
-  {
-    id: "mentoring-eksklusif",
-    icon: Video,
-    emoji: "🎯",
-    title: "Mentoring Eksklusif",
-    subtitle: "1-on-1 dengan Founder",
-    amount: "Arah & Strategi Digital",
-    description:
-      "Sesi diskusi personal bersama Amir Faisal Karimullah untuk membahas roadmap pembelajaran IT, strategi digitalisasi bisnis, atau konsultasi pemecahan masalah.",
-    features: [
-      "Sesi video call 60 menit per bulan",
-      "Review taktis & pemecahan hambatan",
-      "Sharing pengalaman industri teknologi",
-      "Rekomendasi tool & framework terkini",
-    ],
-    accentColor: "#f59e0b",
-    gradient: "from-[rgba(245,158,11,0.1)] to-transparent",
   },
 ];
 
@@ -76,26 +40,26 @@ export default function StimulusProgram() {
         {/* Header */}
         <div className="text-center mb-20">
           <p className="text-[var(--emerald)] font-semibold uppercase tracking-widest text-sm mb-4">
-            Program Stimulus
+            Program Bantuan
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
             Dampak Nyata yang Diberikan
           </h2>
           <p className="text-[var(--slate-400)] text-lg max-w-2xl mx-auto">
-            Program bantuan nyata yang dirancang untuk mendukung pembelajaran, kemandirian finansial, dan penyelesaian masalah mendesak.
+            Program bantuan nyata terarah yang dirancang untuk mendukung pembelajaran, kemandirian finansial, dan penyelesaian masalah mendesak di tahap awal gerakan ini.
           </p>
           <hr className="hr-gradient mt-10 max-w-xs mx-auto" />
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="max-w-2xl mx-auto">
           {programs.map((prog, index) => {
             const Icon = prog.icon;
             return (
               <div
                 key={prog.id}
                 id={prog.id}
-                className="relative glass overflow-hidden p-8 group hover:scale-[1.02] transition-all duration-400"
+                className="relative glass overflow-hidden p-8 md:p-10 group hover:scale-[1.01] transition-all duration-400"
                 style={{
                   boxShadow: `0 0 0 1px ${prog.accentColor}20, 0 20px 40px rgba(0,0,0,0.2)`,
                   animationDelay: `${index * 150}ms`,
@@ -148,12 +112,12 @@ export default function StimulusProgram() {
                     {prog.amount}
                   </div>
 
-                  <p className="text-[var(--slate-400)] text-sm leading-relaxed mb-6">
+                  <p className="text-[var(--slate-400)] text-sm md:text-base leading-relaxed mb-6">
                     {prog.description}
                   </p>
 
                   {/* Feature list */}
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-3">
                     {prog.features.map((f) => (
                       <li
                         key={f}

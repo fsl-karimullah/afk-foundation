@@ -17,9 +17,7 @@ const requirements = [
 ];
 
 const benefits = [
-  { icon: "💰", text: "Stimulus kebaikan Rp200rb/bulan" },
-  { icon: "🌐", text: "Pembuatan landing page statis gratis" },
-  { icon: "🎯", text: "Mentoring & konsultasi 1-on-1 dengan founder" },
+  { icon: "💰", text: "Stimulus kebaikan Rp200rb/bulan (Tahap awal)" },
   { icon: "🤝", text: "Akses jejaring sharing belajar & perkembangan" },
 ];
 
