@@ -1,0 +1,240 @@
+"use client";
+
+import { GraduationCap, BrainCircuit, ExternalLink, ArrowRight } from "lucide-react";
+
+const engines = [
+  {
+    id: "akademi-umkm",
+    icon: GraduationCap,
+    badge: "Education Platform",
+    badgeColor: "#10b981",
+    name: "Akademi UMKM",
+    tagline: "Pusat edukasi bisnis untuk scale-up usaha tanpa burnout.",
+    description:
+      "Platform edukasi bisnis yang dirancang khusus untuk pemilik usaha Indonesia. Dari strategi digital, keuangan, hingga branding — semua dalam satu ekosistem terstruktur.",
+    cta: "Lihat Kelas",
+    ctaUrl: "https://akademiumkm.id",
+    ctaLabel: "akademiumkm.id",
+    impact:
+      "10% dari setiap pendaftaran kelas langsung disalurkan ke program beasiswa pendidikan dan stimulus modal.",
+    accentColor: "#10b981",
+    gradient: "from-[rgba(16,185,129,0.12)] to-transparent",
+    borderGlow: "rgba(16,185,129,0.2)",
+    stats: [
+      { value: "500+", label: "Peserta Aktif" },
+      { value: "20+", label: "Modul Kelas" },
+      { value: "10%", label: "→ Stimulus" },
+    ],
+  },
+  {
+    id: "pulse-ai",
+    icon: BrainCircuit,
+    badge: "AI SaaS Platform",
+    badgeColor: "#818cf8",
+    name: "PulseAI",
+    tagline: "SaaS Automasi Bisnis berbasis AI untuk efisiensi maksimal.",
+    description:
+      "Platform AI yang mengotomasi operasional bisnis dan administrasi — dari customer service, laporan keuangan, hingga kampanye marketing — dalam satu dashboard cerdas.",
+    cta: "Coba PulseAI",
+    ctaUrl: "https://pulseai.biz.id",
+    ctaLabel: "pulseai.biz.id",
+    impact:
+      "Setiap langganan aktif mendanai biaya pendidikan anak sekolah dan infrastruktur digital inisiatif sosial.",
+    accentColor: "#818cf8",
+    gradient: "from-[rgba(129,140,248,0.12)] to-transparent",
+    borderGlow: "rgba(129,140,248,0.2)",
+    stats: [
+      { value: "AI-Powered", label: "Automasi Penuh" },
+      { value: "24/7", label: "Support Aktif" },
+      { value: "∞", label: "→ Kebaikan" },
+    ],
+  },
+];
+
+export default function EngineOfImpact() {
+  return (
+    <section id="engine" className="py-32 relative overflow-hidden">
+      {/* Subtle bg */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 60% at 80% 50%, rgba(129,140,248,0.04) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <p className="text-[var(--emerald)] font-semibold uppercase tracking-widest text-sm mb-4">
+            Circular Philanthropy Engine
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+            The Engine of Impact
+          </h2>
+          <p className="text-[var(--slate-400)] text-lg max-w-2xl mx-auto">
+            Dua bisnis digital yang menjadi{" "}
+            <span className="text-white font-semibold">bahan bakar filantropi</span> —
+            profit yang dihasilkan kembali kepada masyarakat.
+          </p>
+          <hr className="hr-gradient mt-10 max-w-xs mx-auto" />
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {engines.map((eng) => {
+            const Icon = eng.icon;
+            return (
+              <div
+                key={eng.id}
+                id={eng.id}
+                className="relative glass overflow-hidden p-8 md:p-10 group hover:scale-[1.01] transition-all duration-500"
+                style={{
+                  boxShadow: `0 0 0 1px ${eng.borderGlow}, 0 20px 60px rgba(0,0,0,0.3)`,
+                }}
+              >
+                {/* Gradient overlay */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-48 bg-gradient-to-b ${eng.gradient} pointer-events-none`}
+                />
+
+                {/* Badge */}
+                <div className="relative z-10">
+                  <span
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
+                    style={{
+                      color: eng.accentColor,
+                      background: `${eng.accentColor}18`,
+                      border: `1px solid ${eng.accentColor}30`,
+                    }}
+                  >
+                    {eng.badge}
+                  </span>
+
+                  {/* Icon + Name */}
+                  <div className="flex items-start gap-5 mb-6">
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        background: `linear-gradient(135deg, ${eng.accentColor}22, ${eng.accentColor}08)`,
+                        border: `1px solid ${eng.accentColor}33`,
+                      }}
+                    >
+                      <Icon
+                        className="w-8 h-8"
+                        style={{ color: eng.accentColor }}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black text-white mb-1">
+                        {eng.name}
+                      </h3>
+                      <p className="text-[var(--slate-400)] text-sm font-medium leading-snug">
+                        {eng.tagline}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-[var(--slate-300)] text-sm leading-relaxed mb-8">
+                    {eng.description}
+                  </p>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-3 mb-8">
+                    {eng.stats.map((s) => (
+                      <div
+                        key={s.label}
+                        className="text-center py-3 rounded-xl"
+                        style={{
+                          background: `${eng.accentColor}0d`,
+                          border: `1px solid ${eng.accentColor}20`,
+                        }}
+                      >
+                        <p
+                          className="text-lg font-black mb-0.5"
+                          style={{ color: eng.accentColor }}
+                        >
+                          {s.value}
+                        </p>
+                        <p className="text-[var(--slate-400)] text-xs">{s.label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Impact note */}
+                  <div
+                    className="p-4 rounded-xl mb-8 text-sm text-[var(--slate-300)] leading-relaxed"
+                    style={{
+                      background: `${eng.accentColor}0d`,
+                      borderLeft: `3px solid ${eng.accentColor}`,
+                    }}
+                  >
+                    💡 {eng.impact}
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href={eng.ctaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id={`cta-${eng.id}`}
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 group/btn"
+                    style={{
+                      background: `linear-gradient(135deg, ${eng.accentColor}, ${eng.accentColor}cc)`,
+                      color: eng.accentColor === "#10b981" ? "#020617" : "#ffffff",
+                      boxShadow: `0 8px 24px ${eng.accentColor}30`,
+                    }}
+                  >
+                    {eng.cta}
+                    <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                  </a>
+                  <p className="text-[var(--slate-400)] text-xs mt-3 ml-1">
+                    → {eng.ctaLabel}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Flow diagram */}
+        <div className="mt-16 glass p-8 rounded-2xl text-center">
+          <p className="text-[var(--slate-400)] text-sm mb-6 uppercase tracking-widest font-semibold">
+            Alur Circular Philanthropy
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
+            {[
+              { label: "Akademi UMKM & PulseAI", sub: "Profit Engine" },
+              null,
+              { label: "Profit Bersih", sub: "Revenue Share" },
+              null,
+              { label: "AFK Foundation", sub: "Dana Stimulus" },
+              null,
+              { label: "Penerima Manfaat", sub: "Sosial, Pendidikan & Usaha" },
+            ].map((item, i) =>
+              item === null ? (
+                <ArrowRight
+                  key={i}
+                  className="w-5 h-5 text-[var(--emerald)] hidden md:block"
+                />
+              ) : (
+                <div
+                  key={item.label}
+                  className="text-center px-4 py-3 rounded-xl"
+                  style={{
+                    background: "rgba(16,185,129,0.08)",
+                    border: "1px solid rgba(16,185,129,0.15)",
+                  }}
+                >
+                  <p className="text-white font-bold text-sm">{item.label}</p>
+                  <p className="text-[var(--emerald)] text-xs font-medium">{item.sub}</p>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
