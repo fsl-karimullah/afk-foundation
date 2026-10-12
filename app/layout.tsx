@@ -50,6 +50,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
+        <script src="https://api.pulseai.biz.id/api/widget.js?orgId=0b2c513b-8cee-4660-a5b1-7f75bbaa12c7&projectId=b1bb31ef-6f4a-4408-be8a-c7501545b8fe&botName=Kantor%20Cabang%201&company=Kantor%20Cabang%201"></script>
       </head>
       <body className="antialiased">{children}</body>
     </html>

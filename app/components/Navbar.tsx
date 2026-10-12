@@ -5,10 +5,9 @@ import { Heart, Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Dampak", href: "#impact" },
+  { label: "Transparansi", href: "#transparency" },
   { label: "Bisnis", href: "#engine" },
-  { label: "Program", href: "#stimulus" },
   { label: "Founder", href: "#founder" },
-  { label: "Ajukan", href: "#apply" },
 ];
 
 export default function Navbar() {
@@ -53,15 +52,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#apply"
-            className="px-5 py-2.5 rounded-xl bg-[var(--emerald)] text-white font-bold text-sm hover:bg-[var(--emerald-light)] transition-all duration-300 hover:scale-105 btn-primary"
-          >
-            Ajukan Stimulus
-          </a>
-        </div>
+
 
         {/* Mobile menu toggle */}
         <button
@@ -86,13 +77,6 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#apply"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 px-5 py-3 rounded-xl bg-[var(--emerald)] text-white font-bold text-sm text-center hover:bg-[var(--emerald-light)] transition-colors"
-          >
-            Ajukan Stimulus
-          </a>
         </div>
       )}
     </nav>
