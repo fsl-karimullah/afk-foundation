@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
+import { formatImageUrl } from "@/app/lib/images";
 
 interface ActivityImage {
   url: string;
@@ -168,7 +169,7 @@ export default function AidTransparency() {
                   className="relative aspect-[16/10] bg-slate-100 overflow-hidden cursor-pointer"
                 >
                   <img
-                    src={item.transferProofUrl}
+                    src={formatImageUrl(item.transferProofUrl)}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -244,7 +245,7 @@ export default function AidTransparency() {
                               className="w-14 h-12 rounded-lg overflow-hidden border border-slate-200 cursor-pointer hover:opacity-80 transition-opacity bg-slate-100 shrink-0"
                             >
                               <img
-                                src={img.url}
+                                src={formatImageUrl(img.url)}
                                 alt="Dokumentasi"
                                 className="w-full h-full object-cover"
                               />
@@ -332,7 +333,7 @@ export default function AidTransparency() {
             {activeModalImage && (
               <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 flex items-center justify-center max-h-[420px] mb-6">
                 <img
-                  src={activeModalImage}
+                  src={formatImageUrl(activeModalImage)}
                   alt="Audit Preview"
                   className="max-h-[420px] w-auto object-contain"
                 />
@@ -355,7 +356,7 @@ export default function AidTransparency() {
                   }`}
                 >
                   <img
-                    src={activeModalRecord.transferProofUrl}
+                    src={formatImageUrl(activeModalRecord.transferProofUrl)}
                     alt="Bukti Transfer"
                     className="w-20 h-20 rounded-lg object-cover"
                   />
@@ -380,7 +381,7 @@ export default function AidTransparency() {
                         }`}
                       >
                         <img
-                          src={img.url}
+                          src={formatImageUrl(img.url)}
                           alt={`Dokumentasi ${i + 1}`}
                           className="w-20 h-20 rounded-lg object-cover"
                         />

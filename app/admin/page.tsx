@@ -25,6 +25,7 @@ import {
   FileText,
 } from "lucide-react";
 import Link from "next/link";
+import { formatImageUrl } from "@/app/lib/images";
 
 interface ActivityImage {
   url: string;
@@ -763,7 +764,7 @@ export default function AdminDashboardPage() {
                     {/* Header Image Preview (Bukti Transfer) */}
                     <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden cursor-pointer">
                       <img
-                        src={item.transferProofUrl}
+                        src={formatImageUrl(item.transferProofUrl)}
                         alt="Bukti Transfer"
                         onClick={() => {
                           setSelectedRecord(item);
@@ -832,7 +833,7 @@ export default function AdminDashboardPage() {
                                   className="w-12 h-12 rounded-lg overflow-hidden border border-slate-700 shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
                                 >
                                   <img
-                                    src={act.url}
+                                    src={formatImageUrl(act.url)}
                                     alt="Dokumentasi"
                                     className="w-full h-full object-cover"
                                   />
@@ -915,7 +916,7 @@ export default function AdminDashboardPage() {
             {activeModalImage && (
               <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 mb-6 flex items-center justify-center max-h-96">
                 <img
-                  src={activeModalImage}
+                  src={formatImageUrl(activeModalImage)}
                   alt="Audit Preview"
                   className="max-h-96 w-auto object-contain"
                 />
@@ -937,7 +938,7 @@ export default function AdminDashboardPage() {
                   }`}
                 >
                   <img
-                    src={selectedRecord.transferProofUrl}
+                    src={formatImageUrl(selectedRecord.transferProofUrl)}
                     alt="Bukti Transfer"
                     className="w-20 h-20 rounded-lg object-cover"
                   />
@@ -961,7 +962,7 @@ export default function AdminDashboardPage() {
                         }`}
                       >
                         <img
-                          src={img.url}
+                          src={formatImageUrl(img.url)}
                           alt="Dokumentasi"
                           className="w-20 h-20 rounded-lg object-cover"
                         />

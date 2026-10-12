@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "wsrv.nl",
+        pathname: "/**",
+      },
     ],
   },
   async headers() {
