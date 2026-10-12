@@ -761,27 +761,43 @@ export default function AdminDashboardPage() {
                     key={item._id}
                     className="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all flex flex-col group shadow-lg"
                   >
-                    {/* Header Image Preview (Bukti Transfer) */}
-                    <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden cursor-pointer">
-                      <img
-                        src={formatImageUrl(item.transferProofUrl)}
-                        alt="Bukti Transfer"
-                        onClick={() => {
-                          setSelectedRecord(item);
-                          setActiveModalImage(item.transferProofUrl);
-                        }}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/10 text-xs font-semibold text-teal-300">
-                        <Tag className="w-3 h-3" />
-                        <span>{item.category}</span>
-                      </div>
+                    {/* Header Image Preview (Dokumentasi Lapangan duluan, fallback Bukti Transfer) */}
+                    {(() => {
+                      const hasAct = item.activityImages && item.activityImages.length > 0;
+                      const cover = hasAct ? item.activityImages[0].url : item.transferProofUrl;
 
-                      <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-sm text-[10px] text-white flex items-center gap-1">
-                        <ImageIcon className="w-3 h-3 text-teal-400" />
-                        <span>Bukti Trf</span>
-                      </div>
-                    </div>
+                      return (
+                        <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden cursor-pointer">
+                          <img
+                            src={formatImageUrl(cover)}
+                            alt="Cover Dokumentasi"
+                            onClick={() => {
+                              setSelectedRecord(item);
+                              setActiveModalImage(cover);
+                            }}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/10 text-xs font-semibold text-teal-300">
+                            <Tag className="w-3 h-3" />
+                            <span>{item.category}</span>
+                          </div>
+
+                          <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-sm text-[10px] text-white flex items-center gap-1">
+                            {hasAct ? (
+                              <>
+                                <Camera className="w-3 h-3 text-cyan-400" />
+                                <span>Dokumentasi</span>
+                              </>
+                            ) : (
+                              <>
+                                <ImageIcon className="w-3 h-3 text-teal-400" />
+                                <span>Bukti Trf</span>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })()}
 
                     {/* Card Body */}
                     <div className="p-5 flex-1 flex flex-col justify-between">
@@ -816,14 +832,34 @@ export default function AdminDashboardPage() {
 
                       {/* Dokumentasi Gerakan Thumbnails Strip */}
                       <div>
-                        {item.activityImages && item.activityImages.length > 0 && (
-                          <div className="mb-4">
-                            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                              <Camera className="w-3 h-3 text-cyan-400" />
-                              Dokumentasi Gerakan ({item.activityImages.length} Foto)
-                            </p>
-                            <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
-                              {item.activityImages.slice(0, 4).map((act, idx) => (
+                        <div className="mb-4">
+                          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                            <ImageIcon className="w-3 h-3 text-teal-400" />
+                            Bukti Transfer & Foto Tambahan
+                          </p>
+                          <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+                            {/* Bukti Transfer Thumbnail */}
+                            <div
+                              onClick={() => {
+                                setSelectedRecord(item);
+                                setActiveModalImage(item.transferProofUrl);
+                              }}
+                              className="relative w-12 h-12 rounded-lg overflow-hidden border border-slate-700 shrink-0 cursor-pointer hover:opacity-85 transition-opacity"
+                              title="Bukti Transfer Bank"
+                            >
+                              <img
+                                src={formatImageUrl(item.transferProofUrl)}
+                                alt="Bukti Transfer"
+                                className="w-full h-full object-cover"
+                              />
+                              <div className="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
+                                <ImageIcon className="w-3.5 h-3.5 text-white" />
+                              </div>
+                            </div>
+
+                            {/* Foto Tambahan dari Dokumentasi */}
+                            {item.activityImages && item.activityImages.length > 1 &&
+                              item.activityImages.slice(1, 4).map((act, idx) => (
                                 <div
                                   key={idx}
                                   onClick={() => {
@@ -839,20 +875,20 @@ export default function AdminDashboardPage() {
                                   />
                                 </div>
                               ))}
-                              {item.activityImages.length > 4 && (
-                                <div
-                                  onClick={() => {
-                                    setSelectedRecord(item);
-                                    setActiveModalImage(item.activityImages[4].url);
-                                  }}
-                                  className="w-12 h-12 rounded-lg bg-slate-800 border border-slate-700 shrink-0 flex items-center justify-center text-xs font-bold text-slate-300 cursor-pointer"
-                                >
-                                  +{item.activityImages.length - 4}
-                                </div>
-                              )}
-                            </div>
+
+                            {item.activityImages && item.activityImages.length > 4 && (
+                              <div
+                                onClick={() => {
+                                  setSelectedRecord(item);
+                                  setActiveModalImage(item.activityImages[4].url);
+                                }}
+                                className="w-12 h-12 rounded-lg bg-slate-800 border border-slate-700 shrink-0 flex items-center justify-center text-xs font-bold text-slate-300 cursor-pointer"
+                              >
+                                +{item.activityImages.length - 4}
+                              </div>
+                            )}
                           </div>
-                        )}
+                        </div>
 
                         {/* Actions */}
                         <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
@@ -925,30 +961,10 @@ export default function AdminDashboardPage() {
 
             {/* Image Gallery Switcher */}
             <div className="space-y-4">
-              <div>
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                  1. Bukti Transfer Resmi
-                </p>
-                <div
-                  onClick={() => setActiveModalImage(selectedRecord.transferProofUrl)}
-                  className={`inline-block p-1 rounded-xl border cursor-pointer transition-all ${
-                    activeModalImage === selectedRecord.transferProofUrl
-                      ? "border-teal-400 bg-teal-500/10"
-                      : "border-slate-800 hover:border-slate-600"
-                  }`}
-                >
-                  <img
-                    src={formatImageUrl(selectedRecord.transferProofUrl)}
-                    alt="Bukti Transfer"
-                    className="w-20 h-20 rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-
               {selectedRecord.activityImages?.length > 0 && (
                 <div>
                   <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                    2. Foto Gerakan & Dokumentasi Lapangan ({selectedRecord.activityImages.length})
+                    1. Foto Gerakan & Dokumentasi Lapangan ({selectedRecord.activityImages.length})
                   </p>
                   <div className="flex items-center gap-2 overflow-x-auto pb-2">
                     {selectedRecord.activityImages.map((img, i) => (
@@ -971,6 +987,26 @@ export default function AdminDashboardPage() {
                   </div>
                 </div>
               )}
+
+              <div>
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                  2. Bukti Transfer Resmi
+                </p>
+                <div
+                  onClick={() => setActiveModalImage(selectedRecord.transferProofUrl)}
+                  className={`inline-block p-1 rounded-xl border cursor-pointer transition-all ${
+                    activeModalImage === selectedRecord.transferProofUrl
+                      ? "border-teal-400 bg-teal-500/10"
+                      : "border-slate-800 hover:border-slate-600"
+                  }`}
+                >
+                  <img
+                    src={formatImageUrl(selectedRecord.transferProofUrl)}
+                    alt="Bukti Transfer"
+                    className="w-20 h-20 rounded-lg object-cover"
+                  />
+                </div>
+              </div>
             </div>
 
             {selectedRecord.notes && (

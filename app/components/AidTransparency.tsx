@@ -155,104 +155,138 @@ export default function AidTransparency() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {filteredRecords.map((item) => (
-              <div
-                key={item._id}
-                className="group rounded-3xl bg-white border border-slate-200/80 hover:border-teal-500/40 shadow-sm hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 flex flex-col overflow-hidden"
-              >
-                {/* Visual Cover: Bukti Transfer Card */}
+            {filteredRecords.map((item) => {
+              const hasActivity = item.activityImages && item.activityImages.length > 0;
+              const primaryCover = hasActivity ? item.activityImages[0].url : item.transferProofUrl;
+
+              return (
                 <div
-                  onClick={() => {
-                    setActiveModalRecord(item);
-                    setActiveModalImage(item.transferProofUrl);
-                  }}
-                  className="relative aspect-[16/10] bg-slate-100 overflow-hidden cursor-pointer"
+                  key={item._id}
+                  className="group rounded-3xl bg-white border border-slate-200/80 hover:border-teal-500/40 shadow-sm hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 flex flex-col overflow-hidden"
                 >
-                  <img
-                    src={formatImageUrl(item.transferProofUrl)}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {/* Visual Cover: Dokumentasi Lapangan (Fallback ke Bukti Transfer jika belum ada foto kegiatan) */}
+                  <div
+                    onClick={() => {
+                      setActiveModalRecord(item);
+                      setActiveModalImage(primaryCover);
+                    }}
+                    className="relative aspect-[16/10] bg-slate-100 overflow-hidden cursor-pointer"
+                  >
+                    <img
+                      src={formatImageUrl(primaryCover)}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20" />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-black/20" />
 
-                  {/* Badges */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-teal-800 shadow-sm">
-                    <span>{item.category}</span>
-                  </div>
-
-                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-[10px] font-semibold text-white">
-                    <Receipt className="w-3 h-3 text-teal-400" />
-                    <span>Bukti Trf Resmi</span>
-                  </div>
-
-                  {/* Nominal Badge on Bottom */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <span className="text-xs text-white/80">Penyaluran:</span>
-                    <span className="font-black text-lg text-emerald-300 tracking-tight">
-                      Rp {new Intl.NumberFormat("id-ID").format(item.amount)}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Info Body */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      <span>
-                        {new Date(item.distributionDate).toLocaleDateString("id-ID", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </span>
+                    {/* Badges */}
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-teal-800 shadow-sm">
+                      <span>{item.category}</span>
                     </div>
 
-                    <h3 className="font-bold text-slate-900 text-lg leading-snug mb-1 group-hover:text-teal-700 transition-colors">
-                      {item.title}
-                    </h3>
+                    <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-[10px] font-semibold text-white">
+                      {hasActivity ? (
+                        <>
+                          <Camera className="w-3 h-3 text-teal-400" />
+                          <span>Dokumentasi Lapangan</span>
+                        </>
+                      ) : (
+                        <>
+                          <Receipt className="w-3 h-3 text-teal-400" />
+                          <span>Bukti Trf Resmi</span>
+                        </>
+                      )}
+                    </div>
 
-                    <p className="text-xs text-slate-600 mb-3">
-                      Penerima: <strong className="text-slate-800">{item.recipientName}</strong>
-                    </p>
-
-                    {item.notes && (
-                      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
-                        {item.notes}
-                      </p>
-                    )}
+                    {/* Nominal Badge on Bottom */}
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                      <span className="text-xs text-white/80">Penyaluran:</span>
+                      <span className="font-black text-lg text-emerald-300 tracking-tight">
+                        Rp {new Intl.NumberFormat("id-ID").format(item.amount)}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Thumbnails Foto Gerakan & CTA */}
-                  <div>
-                    {item.activityImages && item.activityImages.length > 0 && (
+                  {/* Card Info Body */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                        <span>
+                          {new Date(item.distributionDate).toLocaleDateString("id-ID", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </span>
+                      </div>
+
+                      <h3 className="font-bold text-slate-900 text-lg leading-snug mb-1 group-hover:text-teal-700 transition-colors">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs text-slate-600 mb-3">
+                        Penerima: <strong className="text-slate-800">{item.recipientName}</strong>
+                      </p>
+
+                      {item.notes && (
+                        <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
+                          {item.notes}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Thumbnails Bukti Transfer & Foto Tambahan */}
+                    <div>
                       <div className="mb-4 pt-3 border-t border-slate-100">
                         <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                          <Camera className="w-3.5 h-3.5 text-teal-600" />
-                          <span>Dokumentasi Lapangan ({item.activityImages.length} Foto)</span>
+                          <Receipt className="w-3.5 h-3.5 text-teal-600" />
+                          <span>Bukti Transfer Resmi & Lampiran</span>
                         </p>
 
                         <div className="flex items-center gap-2">
-                          {item.activityImages.slice(0, 3).map((img, i) => (
-                            <div
-                              key={i}
-                              onClick={() => {
-                                setActiveModalRecord(item);
-                                setActiveModalImage(img.url);
-                              }}
-                              className="w-14 h-12 rounded-lg overflow-hidden border border-slate-200 cursor-pointer hover:opacity-80 transition-opacity bg-slate-100 shrink-0"
-                            >
-                              <img
-                                src={formatImageUrl(img.url)}
-                                alt="Dokumentasi"
-                                className="w-full h-full object-cover"
-                              />
+                          {/* Thumbnail Bukti Transfer */}
+                          <div
+                            onClick={() => {
+                              setActiveModalRecord(item);
+                              setActiveModalImage(item.transferProofUrl);
+                            }}
+                            className="relative w-14 h-12 rounded-lg overflow-hidden border border-slate-200 cursor-pointer hover:opacity-85 transition-opacity bg-slate-100 shrink-0 group/proof"
+                            title="Klik untuk melihat Bukti Transfer Bank"
+                          >
+                            <img
+                              src={formatImageUrl(item.transferProofUrl)}
+                              alt="Bukti Transfer"
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-slate-950/20 flex items-center justify-center">
+                              <Receipt className="w-3.5 h-3.5 text-white drop-shadow" />
                             </div>
-                          ))}
+                          </div>
 
-                          {item.activityImages.length > 3 && (
+                          {/* Foto Dokumentasi Lainnya jika ada lebih dari 1 */}
+                          {hasActivity &&
+                            item.activityImages.slice(1, 3).map((img, i) => (
+                              <div
+                                key={i}
+                                onClick={() => {
+                                  setActiveModalRecord(item);
+                                  setActiveModalImage(img.url);
+                                }}
+                                className="w-14 h-12 rounded-lg overflow-hidden border border-slate-200 cursor-pointer hover:opacity-80 transition-opacity bg-slate-100 shrink-0"
+                                title="Dokumentasi Tambahan"
+                              >
+                                <img
+                                  src={formatImageUrl(img.url)}
+                                  alt="Dokumentasi"
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            ))}
+
+                          {hasActivity && item.activityImages.length > 3 && (
                             <div
                               onClick={() => {
                                 setActiveModalRecord(item);
@@ -265,23 +299,23 @@ export default function AidTransparency() {
                           )}
                         </div>
                       </div>
-                    )}
 
-                    <button
-                      onClick={() => {
-                        setActiveModalRecord(item);
-                        setActiveModalImage(item.transferProofUrl);
-                      }}
-                      className="w-full py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-teal-50 text-teal-700 font-bold text-xs border border-slate-200 hover:border-teal-200 transition-colors flex items-center justify-center gap-2 cursor-pointer group-hover:border-teal-300"
-                    >
-                      <Eye className="w-4 h-4" />
-                      <span>Lihat Bukti Transfer & Foto Lengkap</span>
-                      <ChevronRight className="w-3.5 h-3.5 ml-auto text-teal-500" />
-                    </button>
+                      <button
+                        onClick={() => {
+                          setActiveModalRecord(item);
+                          setActiveModalImage(primaryCover);
+                        }}
+                        className="w-full py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-teal-50 text-teal-700 font-bold text-xs border border-slate-200 hover:border-teal-200 transition-colors flex items-center justify-center gap-2 cursor-pointer group-hover:border-teal-300"
+                      >
+                        <Eye className="w-4 h-4" />
+                        <span>Lihat Dokumentasi & Bukti Transfer</span>
+                        <ChevronRight className="w-3.5 h-3.5 ml-auto text-teal-500" />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
@@ -342,32 +376,11 @@ export default function AidTransparency() {
 
             {/* Image Selector Strip */}
             <div className="space-y-4">
-              <div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <Receipt className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Bukti Transfer Bank Resmi:</span>
-                </p>
-                <div
-                  onClick={() => setActiveModalImage(activeModalRecord.transferProofUrl)}
-                  className={`inline-block p-1 rounded-xl border cursor-pointer transition-all ${
-                    activeModalImage === activeModalRecord.transferProofUrl
-                      ? "border-teal-600 ring-2 ring-teal-500/20"
-                      : "border-slate-200 hover:border-slate-300"
-                  }`}
-                >
-                  <img
-                    src={formatImageUrl(activeModalRecord.transferProofUrl)}
-                    alt="Bukti Transfer"
-                    className="w-20 h-20 rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-
               {activeModalRecord.activityImages?.length > 0 && (
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <Camera className="w-3.5 h-3.5 text-teal-600" />
-                    <span>Dokumentasi Foto Gerakan & Penyerahan:</span>
+                    <span>1. Foto Gerakan & Dokumentasi Lapangan ({activeModalRecord.activityImages.length}):</span>
                   </p>
                   <div className="flex items-center gap-2 overflow-x-auto pb-2">
                     {activeModalRecord.activityImages.map((img, i) => (
@@ -390,6 +403,27 @@ export default function AidTransparency() {
                   </div>
                 </div>
               )}
+
+              <div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <Receipt className="w-3.5 h-3.5 text-teal-600" />
+                  <span>2. Bukti Transfer Bank Resmi:</span>
+                </p>
+                <div
+                  onClick={() => setActiveModalImage(activeModalRecord.transferProofUrl)}
+                  className={`inline-block p-1 rounded-xl border cursor-pointer transition-all ${
+                    activeModalImage === activeModalRecord.transferProofUrl
+                      ? "border-teal-600 ring-2 ring-teal-500/20"
+                      : "border-slate-200 hover:border-slate-300"
+                  }`}
+                >
+                  <img
+                    src={formatImageUrl(activeModalRecord.transferProofUrl)}
+                    alt="Bukti Transfer"
+                    className="w-20 h-20 rounded-lg object-cover"
+                  />
+                </div>
+              </div>
             </div>
 
             {activeModalRecord.notes && (
